@@ -1,0 +1,1 @@
+Keep the processed data for ground-truth in this folder.

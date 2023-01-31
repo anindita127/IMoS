@@ -1,0 +1,1 @@
+Keep the smplx models in this folder.
