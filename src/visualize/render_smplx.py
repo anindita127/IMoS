@@ -110,7 +110,7 @@ def vis_sequence(args, seq_data, count, dir_path, mv, ds_name, save_png):
         all_mesh = Mesh(vertices=verts_all[frame], faces=faces_all, vc=color[frame], smooth=True)
         mv.set_static_meshes([all_mesh])
         if save_png:
-            seq_render_path = makepath(os.path.join(dir_path, seq_data.split('\\')[-1][:-4] + 'in', str(frame) + '.png'),  isfile=True)
+            seq_render_path = makepath(os.path.join(dir_path, seq_data.split('\\')[-1][:-4], str(frame) + '.png'),  isfile=True)
             mv.save_snapshot(seq_render_path)
     print(intent_name)
 

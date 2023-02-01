@@ -41,6 +41,8 @@ Save the raw data in `../DATASETS/GRAB`.
 ```
 python src/data_loader/dataset_preprocess.py
 ```
+Download the pretrained weights for the models used in our paper from [here](https://drive.google.com/drive/folders/119JBZA98BxbRc3hEoA7keI3O685TkZS6?usp=share_link) and keep it inside `save\pretrained_models`.
+
 
 4. To evaluate our pre-trained model, run:
 ```

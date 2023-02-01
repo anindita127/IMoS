@@ -1,1 +1,1 @@
-Keep the pre-trained models in this folder.
+Keep the 'pretrained_models' folder here.
