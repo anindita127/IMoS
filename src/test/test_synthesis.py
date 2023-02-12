@@ -377,10 +377,11 @@ class Tester:
                 arms_rot_out_ = self.arms_model.single_step_sample(args, arms_rot_prev, obj_transl_past, X_learned_arms)   
                 ARMS_out.append(arms_rot_out_.unsqueeze(1))
                 arms_rot_out = arms_rot_out_.reshape(1, -1, 6)
-                arms_rot_body_in = arms_rot_out.clone()
+                arms_rot_body_in = arms_rot_out
 
                 '''Do the following rearrangement if you use the pre-trained model. There is a mismatch in the joint ordering in the pre-trained weights.'''
-                '''Comment out the next 6 lines if you train your own model'''
+                '''Comment out the next 7 lines if you train your own model'''
+                arms_rot_body_in = to_tensor(torch.zeros_like(arms_rot_out))
                 arms_rot_body_in[..., 0, :] = arms_rot_out[..., 3, :]
                 arms_rot_body_in[..., 1, :] = arms_rot_out[..., 0, :]
                 arms_rot_body_in[..., 2, :] = arms_rot_out[..., 4, :]
