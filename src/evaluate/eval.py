@@ -195,6 +195,10 @@ class Tester:
             data = self.load_batch(batch, batch_size=1)
             arms_rot_out = self.arms_model.sample(self, T, data)
             arms_rot_out = arms_rot_out.reshape(1, T, -1, 6)
+            arms_rot_body_in = arms_rot_out
+
+            '''Do the following rearrangement if you use the pre-trained model. There is a mismatch in the joint ordering in the pre-trained weights.'''
+            '''Comment out the next 7 lines if you train your own model'''
             arms_rot_body_in = to_tensor(torch.zeros_like(arms_rot_out))
             arms_rot_body_in[..., 0, :] = arms_rot_out[..., 3, :]
             arms_rot_body_in[..., 1, :] = arms_rot_out[..., 0, :]
@@ -202,6 +206,7 @@ class Tester:
             arms_rot_body_in[..., 3, :] = arms_rot_out[..., 1, :]
             arms_rot_body_in[..., 4, :] = arms_rot_out[..., 5, :]
             arms_rot_body_in[..., 5, :] = arms_rot_out[..., 2, :]
+            
             body_rot_out = self.body_model.sample(self, T, data, arms_rot_body_in.reshape(1, T, -1))
             body_rot_out = body_rot_out.reshape(1, T, -1, 6)
             test_fullpose = data['fullpose_with_fingers'].clone()
