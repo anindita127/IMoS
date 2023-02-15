@@ -43,7 +43,7 @@ def argparseNloop():
                         help='initial length of inputs to seed the prediction; used when offset > 0')
     parser.add_argument('-exp', nargs='+', type=int, default=0,
                         help='experiment number')
-    parser.add_argument('-framerate', nargs='+', type=int, default=30,
+    parser.add_argument('-framerate', nargs='+', type=int, default=30,  #this is a dummy value, not used anywhere.
                         help='frame rate after pre-processing.')
     parser.add_argument('-seed', nargs='+', type=int, default=4815,
                         help='manual seed')
@@ -65,7 +65,7 @@ def argparseNloop():
                         help='minibatch size.')
     parser.add_argument('-num_epochs', nargs='+', type=int, default=1500,
                         help='number of epochs for training')
-    parser.add_argument('--latentD', nargs='+', type=int, default=250,
+    parser.add_argument('--latentD', nargs='+', type=int, default=32,   #use 32 for training arms and 100 for training body
                         help='latent dimension of manifold space')
     parser.add_argument('--skip_train', nargs='+', type=int, default=1,
                         help='downsampling factor of the training dataset. For example, a value of s indicates floor(D/s) training samples are loaded, '
