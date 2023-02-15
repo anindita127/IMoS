@@ -200,9 +200,9 @@ class Tester:
             D_left = torch.norm(diff_left, dim=-1).float()
             D_left = D_left[:, ::300]
             l_flag = D_left < contact_threshold
-            losses += 1*self.LossL1(lh2obj_w_pred * lh2obj_opt, lh2obj_w_pred * lh2obj_pred)
+            losses += 1*self.LossL2(lh2obj_w_pred * lh2obj_opt, lh2obj_w_pred * lh2obj_pred)
             losses += 0.005*torch.mean(D_left[l_flag] - 0.0)
-            losses += 0.005*self.LossL1(left_hand_vertices_opt, left_hand_vertices)
+            losses += 0.005*self.LossL2(left_hand_vertices_opt, left_hand_vertices)
         return losses, rotmat2d6(sbj_opt['right_hand_pose']), rotmat2d6(sbj_opt['left_hand_pose'])
 
     def load_data(self,args, ds_name):
