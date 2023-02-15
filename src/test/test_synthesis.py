@@ -184,9 +184,9 @@ class Tester:
             D_right = torch.norm(diff, dim=-1).float()
             D_right = D_right[:, ::300]
             r_flag = D_right < contact_threshold
-            losses += 1*self.LossL1(rh2obj_w_pred * rh2obj_opt, rh2obj_w_pred * rh2obj_pred)
+            losses += 1*self.LossL2(rh2obj_w_pred * rh2obj_opt, rh2obj_w_pred * rh2obj_pred)
             losses += 0.005*torch.mean(D_right[r_flag] - 0.0)
-            losses += 0.005*self.LossL1(right_hand_vertices_opt, right_hand_vertices)
+            losses += 0.005*self.LossL2(right_hand_vertices_opt, right_hand_vertices)
         else: 
             lh2obj_opt = self.bps_torch.encode(x=obj_vertices_opt,
                                        feature_type=['deltas'],
