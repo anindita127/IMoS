@@ -49,21 +49,7 @@ Download the pretrained weights for the models used in our paper from [here](htt
 python src/evaluate/eval.py
 ```
     
-5. To train our synthesis modules:
-
-  	a. To train the *Arm Synthesis module*, run:
-	```
-	python src/train/train_arms.py
-	```
-
-	b. To train the *Body Synthesis module*, run:
-	```
-	python src/train/train_body.py
-	```
-
-Keep all parameters to their default values as provided in `src/tools/argUtils.py`.
-
-6. To generate the `.npy` files with the synthesized motions, run:
+5. To generate the `.npy` files with the synthesized motions, run:
 ```
 python src/test/test_synthesis.py
 ```
