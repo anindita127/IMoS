@@ -53,9 +53,8 @@ python src/evaluate/eval.py
 ```
 python src/test/test_synthesis.py
 ```
-The pretrained model path is hardcoded in the `args.load` parameter in the code already. Change the parameter for newly trained models.
 
-7. To visualize sample results from our paper, run:
+6. To visualize sample results from our paper, run:
 ```
 python src/visualize/render_smplx.py
 ```
