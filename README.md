@@ -58,3 +58,6 @@ python src/test/test_synthesis.py
 ```
 python src/visualize/render_smplx.py
 ```
+
+## License
+This code is distributed under an [MIT LICENSE](LICENSE).
