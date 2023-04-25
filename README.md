@@ -60,4 +60,4 @@ python src/visualize/render_smplx.py
 ```
 
 ## License
-This code is distributed under an [MIT LICENSE](LICENSE).
+This code is distributed under [MIT LICENSE](LICENSE).
