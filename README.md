@@ -58,6 +58,19 @@ python src/test/test_synthesis.py
 ```
 python src/visualize/render_smplx.py
 ```
+7.  To train our synthesis modules:
+
+  	a. To train the *Arm Synthesis module*, run:
+	```
+	python src/train/train_arms.py
+	```
+
+	b. To train the *Body Synthesis module*, run:
+	```
+	python src/train/train_body.py
+	```
+
+Keep the parameters the same as the pre-trained model argument file.
 
 ## License
 This code is distributed under [MIT LICENSE](LICENSE).
