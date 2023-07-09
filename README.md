@@ -72,5 +72,6 @@ python src/visualize/render_smplx.py
 
 Keep all hyper-parameters as provided in the pre-trained argument file.
 
+
 ## License
 This code is distributed under [MIT LICENSE](LICENSE).
