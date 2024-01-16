@@ -185,7 +185,8 @@ class Tester:
             D_right = D_right[:, ::300]
             r_flag = D_right < contact_threshold
             losses += 1*self.LossL2(rh2obj_w_pred * rh2obj_opt, rh2obj_w_pred * rh2obj_pred)
-            losses += 0.005*torch.mean(D_right[r_flag] - 0.0)
+            if torch.any(r_flag):
+                losses += 0.005*torch.mean(D_right[r_flag] - 0.0)
             losses += 0.005*self.LossL2(right_hand_vertices_opt, right_hand_vertices)
         else: 
             lh2obj_opt = self.bps_torch.encode(x=obj_vertices_opt,
@@ -201,7 +202,8 @@ class Tester:
             D_left = D_left[:, ::300]
             l_flag = D_left < contact_threshold
             losses += 1*self.LossL2(lh2obj_w_pred * lh2obj_opt, lh2obj_w_pred * lh2obj_pred)
-            losses += 0.005*torch.mean(D_left[l_flag] - 0.0)
+            if torch.any(l_flag):
+                losses += 0.005*torch.mean(D_left[l_flag] - 0.0)
             losses += 0.005*self.LossL2(left_hand_vertices_opt, left_hand_vertices)
         return losses, rotmat2d6(sbj_opt['right_hand_pose']), rotmat2d6(sbj_opt['left_hand_pose'])
 
